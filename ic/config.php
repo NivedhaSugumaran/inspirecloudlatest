@@ -7,7 +7,7 @@ define('DB_PASSWORD', '12345678');
 define('DB_NAME', 'inspirecloud');
 
 /* Attempt to connect to MySQL database */
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$link = mysqli_connect('ls-368e16b6922a409f3c8f6c38fa4222ae912f9d6d.ct5zdyhxsqlg.ap-south-1.rds.amazonaws.com', 'admin','12345678' , 'inspirecloud' );
 
 // Check connection
 if($link === false){
