@@ -6,7 +6,7 @@ if(isset($_POST["certid"]) && !empty($_POST["certid"])){
         mysqli_stmt_bind_param($stmt, "i", $param_id);
         $param_id = trim($_POST["certid"]);
         if(mysqli_stmt_execute($stmt)){
-            header("location: welcome.php");
+            <script>window.location.href("welcome.php");</script>
             exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
