@@ -7,7 +7,7 @@ define('DB_PASSWORD', '12345678');
 define('DB_NAME', 'inspirecloud');
 
 /* Attempt to connect to MySQL database */
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$link = mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 // Check connection
 if($link === false){
