@@ -1,7 +1,7 @@
-FROM php:7.0-apache
+FROM php:7.3-apache
 
-RUN apt-get update && \
-    apt-get install -y php5-mysql && \
-    apt-get clean
+COPY . /ic
 
-COPY ic /var/www/html/
+COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+
+RUN chown -R www-data:www-data /app && a2enmod rewrite
