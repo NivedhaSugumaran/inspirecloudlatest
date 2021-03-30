@@ -1,3 +1,4 @@
+<phpunit bootstrap="src/autoload.php" verbose="true">
 <?php declare(strict_types=1);
 final class Email
 {
