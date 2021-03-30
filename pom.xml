@@ -1,90 +1,52 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>plugin</artifactId>
-    <version>1.424</version>
-  </parent>
-
-  <groupId>org.jenkins-ci.plugins</groupId>
-  <artifactId>php</artifactId>
-  <version>1.1-SNAPSHOT</version>
-  <packaging>hpi</packaging>
-  <description>Meta-plugin for php developement, based on http://jenkins-php.org</description>
-
-  <scm>
-    <connection>scm:git:git@github.com:jenkinsci/php-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:jenkinsci/php-plugin.git</developerConnection>
-    <url>https://github.com/jenkinsci/php-plugin</url>
-  </scm>
-
-  <repositories>
-    <repository>
-      <id>repo.jenkins-ci.org</id>
-      <url>http://repo.jenkins-ci.org/public/</url>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>repo.jenkins-ci.org</id>
-      <url>http://repo.jenkins-ci.org/public/</url>
-    </pluginRepository>
-  </pluginRepositories>
-
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>my-app</name>
+  <url>http://maven.apache.org</url>
   <dependencies>
-      <dependency>
-          <groupId>org.jvnet.hudson.plugins</groupId>
-          <artifactId>checkstyle</artifactId>
-          <version>3.32</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jenkins-ci.plugins</groupId>
-          <artifactId>cloverphp</artifactId>
-          <version>0.3.2</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jvnet.hudson.plugins</groupId>
-          <artifactId>dry</artifactId>
-          <version>2.33</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jenkins-ci.plugins</groupId>
-          <artifactId>htmlpublisher</artifactId>
-          <version>1.0</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jvnet.hudson.plugins</groupId>
-          <artifactId>jdepend</artifactId>
-          <version>1.2.3</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jenkins-ci.plugins</groupId>
-          <artifactId>plot</artifactId>
-          <version>1.5</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jvnet.hudson.plugins</groupId>
-          <artifactId>pmd</artifactId>
-          <version>3.33</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jenkins-ci.plugins</groupId>
-          <artifactId>violations</artifactId>
-          <version>0.7.11</version>
-      </dependency>
-      <dependency>
-          <groupId>org.jenkins-ci.plugins</groupId>
-          <artifactId>xunit</artifactId>
-          <version>1.48</version>
-      </dependency>
-
-      <dependency>
-          <groupId>net.sourceforge.saxon</groupId>
-          <artifactId>saxon</artifactId>
-          <version>9.1.0.8</version>
-          <classifier>s9api</classifier>
-          <scope>test</scope>
-      </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <!-- Build an executable JAR -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>com.mycompany.app.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+        <plugin>
+				<groupId>com.lazerycode.jmeter</groupId>
+				<artifactId>jmeter-maven-plugin</artifactId>
+				<version>1.4.1</version>
+				<executions>
+					<execution>
+						<id>jmeter-tests</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+   
+    </plugins>
+  </build>
 </project>
