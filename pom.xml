@@ -37,10 +37,7 @@
 		<maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
 	</properties>
 
-	<groupId>org.phpmaven.build</groupId>
-	<artifactId>parent</artifactId>
-	<version>2.2.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	
 
 	<name>phpexec-java:${project.version}</name>
 
@@ -48,19 +45,12 @@
         PHP Maven root
     </description>
 
-	<modules>
-		<module>generic-site-parent</module>
-		<module>generic-java-parent</module>
-		<module>generic-parent</module>
-	</modules>
-
+	
 	<profiles>
 		<profile>
 			<id>all-modules</id>
 			<modules>
-				<module>generic-site-parent</module>
-				<module>generic-java-parent</module>
-				<module>generic-parent</module>
+				
 				<module>pear-java</module>
 				<module>phpexec-java</module>
 				<module>maven-php</module>
