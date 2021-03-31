@@ -1,5 +1,5 @@
 FROM php:7.2-apache-stretch
-COPY ic /var/www/html/
+COPY src /var/www/html/
 EXPOSE 80
 RUN docker-php-ext-install mysqli  && \
     echo "ServerName localhost" >> /etc/apache2/apache2.conf  
